@@ -14,7 +14,7 @@ Installation
 ============
 
 Some configuration options are available to tune performance of the
-parallel implementation. See INSTALL.
+parallel implementation.
 
 
 Algorithm overview

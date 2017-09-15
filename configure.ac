@@ -17,7 +17,7 @@ AC_ARG_ENABLE(altivec, AC_HELP_STRING(--enable-altivec, [Use AltiVec for bitslic
 AC_ARG_ENABLE(neon, AC_HELP_STRING(--enable-neon, [Use ARM NEON for bitslice]),
               enable_neon=$enableval, enable_neon=no)
 
-AM_INIT_AUTOMAKE(libdvbcsa, 1.1.0)
+AM_INIT_AUTOMAKE(foreign)
 AC_CONFIG_HEADERS(config.h)
 
 AC_PROG_CC
