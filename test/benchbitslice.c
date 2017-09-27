@@ -73,7 +73,7 @@ main (void)
 
   gettimeofday(&t0, NULL);
 
-  for (n = (1 << 12) / gs; n < (1 << 19) / gs; n *= 2)
+  for (n = (1 << 12) / gs; n < (1 << 22) / gs; n *= 2)
     {
       printf(" - decrypting %"PRIu64" TS packets\n", n * gs);
 
@@ -97,7 +97,7 @@ main (void)
 
   c = 0;
 
-  for (n = (1 << 12) / gs; n < (1 << 19) / gs; n *= 2)
+  for (n = (1 << 12) / gs; n < (1 << 22) / gs; n *= 2)
     {
       printf(" - encrypting %"PRIu64" TS packets\n", n * gs);
 
