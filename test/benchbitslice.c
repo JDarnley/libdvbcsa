@@ -37,7 +37,7 @@ main (void)
 {
   struct timeval		t0, t1;
   struct dvbcsa_bs_key_s	*ffkey = dvbcsa_bs_key_alloc();
-  unsigned int			n, i, c = 0;
+  uint64_t			n, i, c = 0;
   unsigned int			gs = dvbcsa_bs_batch_size();
   uint8_t			data[gs + 1][184];
   struct dvbcsa_bs_batch_s	pcks[gs + 1];
@@ -75,7 +75,7 @@ main (void)
 
   for (n = (1 << 12) / gs; n < (1 << 19) / gs; n *= 2)
     {
-      printf(" - decrypting %u TS packets\n", n * gs);
+      printf(" - decrypting %"PRIu64" TS packets\n", n * gs);
 
 #ifdef __linux__
       sched_yield();
@@ -89,7 +89,7 @@ main (void)
 
   gettimeofday(&t1, NULL);
 
-  printf(" - %u packets proceded, %.1f Mbits/s\n\n", c,
+  printf(" - %"PRIu64" packets proceded, %.1f Mbits/s\n\n", c,
 	 (float)(c * 184 * 8) / (float)((t1.tv_sec * 1000000 + t1.tv_usec) - (t0.tv_sec * 1000000 + t0.tv_usec))
 	 );
 
@@ -99,7 +99,7 @@ main (void)
 
   for (n = (1 << 12) / gs; n < (1 << 19) / gs; n *= 2)
     {
-      printf(" - encrypting %u TS packets\n", n * gs);
+      printf(" - encrypting %"PRIu64" TS packets\n", n * gs);
 
 #ifdef __linux__
       sched_yield();
@@ -113,7 +113,7 @@ main (void)
 
   gettimeofday(&t1, NULL);
 
-  printf(" - %u packets proceded, %.1f Mbits/s\n", c,
+  printf(" - %"PRIu64" packets proceded, %.1f Mbits/s\n", c,
 	 (float)(c * 184 * 8) / (float)((t1.tv_sec * 1000000 + t1.tv_usec) - (t0.tv_sec * 1000000 + t0.tv_usec))
 	 );
 
