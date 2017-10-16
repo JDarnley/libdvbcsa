@@ -33,6 +33,10 @@
 #include <tmmintrin.h>
 #endif
 
+#ifdef DVBCSA_USE_AVX
+#include <immintrin.h>
+#endif
+
 typedef __m128i dvbcsa_bs_word_t;
 
 #define BS_BATCH_SIZE 128
@@ -56,7 +60,7 @@ typedef __m128i dvbcsa_bs_word_t;
 
 #define BS_EMPTY()
 
-#ifdef DVBCSA_USE_SSSE3
+#if defined(DVBCSA_USE_SSSE3) || defined(DVBCSA_USE_AVX)
 /* block cipher 2-word load with byte-deinterleaving */
 #define BS_LOAD_DEINTERLEAVE_8(ptr, var_lo, var_hi) \
       {\
